@@ -23,17 +23,7 @@ public class Scenario {
 		asterix.parler("Bonjour");
 		minus.parler("UN GAU... UN GAUGAU...");
 		asterix.frapper(minus);
-		asterix.frapper(minus);
-		asterix.frapper(minus);	
 		
-		Village village4546B = new Village("4546B", 2);
-		Chef bernard = new Chef("Bernard", 10000, 300, village4546B);
-		village4546B.setChef(bernard);
-		village4546B.ajouterHabitant(obelix);
-		village4546B.ajouterHabitant(asterix);
-		System.out.println(village4546B.getNom());
-		System.out.println(village4546B.trouverHabitant(0));
-		System.out.println(village4546B.trouverHabitant(1));
 	}
 
 }
