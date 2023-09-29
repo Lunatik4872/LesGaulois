@@ -3,6 +3,8 @@ package personnages;
 public class Romain {
 	private String nom;
 	private int force;
+	private Equipement[] equipements = new Equipement[2];
+	private int nbEquipement = 0;
 	
 	public Romain(String nom, int force) {
 		assert force >= 0;
@@ -36,11 +38,37 @@ public class Romain {
 		
 	}
 	
-//	public static void main(String[] args) {
-//		Romain bernard = new Romain("Bernard",12);
-//		bernard.parler("Yes");
-//		bernard.recevoirCoup(5);
-//		bernard.recevoirCoup(18);
-//	}
+	public void sEquiper(Equipement piece) {
+		switch (nbEquipement) {
+		
+			case 0 :
+				equipements[0] = piece;
+				nbEquipement++;
+				System.out.println("Le soldat " + nom + " s'equipe avec un " + piece);
+				break;
+		
+			case 1 :
+				if (piece != equipements[0]) { 
+					equipements[0] = piece;
+					nbEquipement++;
+					System.out.println("Le soldat " + nom + " s'equipe avec un " + piece);
+				}
+				else {
+					System.out.println("Le soldat " + nom + " possede deja un " + piece);
+				}
+				break;
+			
+			default:
+				System.out.println("Le soldat " + nom + " est deja bien protege !");
+		}
+	}
+	
+	public static void main(String[] args) {
+		Romain bernard = new Romain("Bernard",12);
+		bernard.sEquiper(Equipement.CASQUE);
+		bernard.sEquiper(Equipement.CASQUE);
+		bernard.sEquiper(Equipement.BOUCLIER);
+		bernard.sEquiper(Equipement.CASQUE);
+	}
 
 }

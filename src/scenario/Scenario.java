@@ -5,6 +5,7 @@ import personnages.Romain;
 import personnages.Village;
 import personnages.Chef;
 import personnages.Druide;
+import personnages.Equipement;
 
 public class Scenario {
 
