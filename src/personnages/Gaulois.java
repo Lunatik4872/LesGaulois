@@ -84,7 +84,14 @@ public class Gaulois {
 		Gaulois asterix = new Gaulois("Asterix",8);
 		Romain bernard = new Romain("Bernard",12);
 		Musee trois = new Musee();
+		
+		asterix.trophees[0] = Equipement.BOUCLIER;
+		asterix.trophees[1] = Equipement.CASQUE;
+		asterix.trophees[2] = Equipement.BOUCLIER;
+		asterix.nb_trophees = 2;
+		
 		asterix.faireUneDonnation(trois);
+		System.out.println(trois.extraireInstructionsCaml());
 	}
 
 }

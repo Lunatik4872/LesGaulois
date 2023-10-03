@@ -21,12 +21,20 @@ public class Musee {
 			System.out.println("Plus de place dans le musee");
 		}
 	}
+	
+	public String extraireInstructionsCaml() {
+		String commande = "let musee = [\n";
+		
+		for (int i = 0; i < nbTrophee; i++) {
+			commande += "\"" + tabTrophee[i].donnerNom() + "\", " + "\"" + tabTrophee[i].getEquipement() + "\";\n" ;
+		}
+		
+		return commande+"]";
+	}
 
 	@Override
 	public String toString() {
 		return "Musee [tabTrophee=" + Arrays.toString(tabTrophee) + ", nbTrophee=" + nbTrophee + "]";
 	}
-	
-	
-	
+		
 }
