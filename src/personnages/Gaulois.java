@@ -1,5 +1,10 @@
 package personnages;
 
+import java.util.Iterator;
+
+import lemusee.Musee;
+import lemusee.Trophee;
+
 public class Gaulois {
 	private String nom;
 	private int effetPotion = 1;
@@ -22,7 +27,7 @@ public class Gaulois {
 
 	private String prendreParole() {
 		
-		return "Le gaulois" + nom + " : " ;
+		return "Le gaulois " + nom + " : " ;
 	}
 	
 //	public void frapper(Romain romain) {
@@ -48,6 +53,27 @@ public class Gaulois {
 		}
 		
 	}
+	
+	public void faireUneDonnation(Musee musee){
+		
+		if(nb_trophees != 0) 
+		{
+			String phrase = "Je donne au musee tous mes trophees : ";
+			
+			for (int i = 0; i <= nb_trophees; i++) 
+			{	
+				musee.donnerTrophees(this, trophees[i]);
+				phrase += "\n- "+trophees[i];
+				trophees[i] = null;
+			}
+			
+			parler(phrase);
+		}
+		else 
+		{
+			parler("Je n'ai aucun equipement");
+		}
+	}
 
 	@Override
 	public String toString() {
@@ -57,11 +83,8 @@ public class Gaulois {
 	public static void main(String[] args) {
 		Gaulois asterix = new Gaulois("Asterix",8);
 		Romain bernard = new Romain("Bernard",12);
-		asterix.boirepotion(10);
-		asterix.boirepotion(3);
-		asterix.frapper(bernard);
-		asterix.frapper(bernard);
-		
+		Musee trois = new Musee();
+		asterix.faireUneDonnation(trois);
 	}
 
 }
